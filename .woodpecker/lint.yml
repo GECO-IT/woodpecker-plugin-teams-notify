@@ -1,0 +1,36 @@
+---
+labels:
+  platform: linux/amd64
+  backend: docker
+
+when:
+  - event: [pull_request, tag, cron]
+  - event: push
+    branch:
+      - ${CI_REPO_DEFAULT_BRANCH}
+      - renovate/*
+
+steps:
+  - name: lint-dockerfile
+    image: hadolint/hadolint:v2.12.1-beta-alpine
+    commands:
+      - hadolint Dockerfile
+      - hadolint Dockerfile.Windows
+    when:
+      path: "Dockerfile.*"
+
+  - name: lint-shell
+    image: koalaman/shellcheck-alpine:latest # not maintained semver version as of 2023-10
+    commands:
+      #- shellcheck *.sh
+      # remove all info check (quote,...)
+      - shellcheck -S warning *.sh
+    when:
+      path: "*.sh"
+
+  - name: lint-markdown
+    image: davidanson/markdownlint-cli2:v0.14.0
+    commands:
+      - "markdownlint-cli2 *.{md,markdown}"
+    when:
+      path: "*.{md,markdown}"
