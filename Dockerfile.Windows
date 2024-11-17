@@ -10,12 +10,9 @@ LABEL maintainer="Geco-iT Team <contact@geco-it.fr>" `
 
 SHELL ["cmd", "/S", "/C"]
 
-WORKDIR C:\data
-
 # Install GnuWin file and imagemagick for convert Avatar Image URI
 # to base64 (use if your forge are private)
 COPY teams-notify.sh file-5.03-setup.exe /bin/
-COPY card.json /data/
 RUN C:\bin\file-5.03-setup.exe /VERYSILENT /NORESTART /DIR="C:\GnuWin" `
     `
     # Install Imagemagick
@@ -26,6 +23,8 @@ RUN C:\bin\file-5.03-setup.exe /VERYSILENT /NORESTART /DIR="C:\GnuWin" `
     && setx /m PATH "C:\\GnuWin\\bin;%path%"
 
 USER ContainerUser
+WORKDIR C:\data
+COPY card.json /data/
 
 SHELL ["bash.exe", "-c"]
 
