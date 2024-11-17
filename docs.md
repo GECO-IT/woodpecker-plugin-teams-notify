@@ -2,7 +2,7 @@
 name: Teams Notify
 author: Geco-iT Teams
 icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg/langfr-110px-Microsoft_Office_Teams_%282018%E2%80%93present%29.svg.png
-description: Plugin to add/remove a Harbor-Registry label to an oci image artifact
+description: Plugin to send pipeline status notify to Microsot Teams
 tags: [notifications, chat]
 containerImage: gecoit84/woodpecker-teams-notify-plugin
 containerImageUrl: https://hub.docker.com/gecoit84/woodpecker-teams-notify-plugin
