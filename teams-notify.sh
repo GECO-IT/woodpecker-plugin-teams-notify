@@ -4,12 +4,12 @@ set -e
 
 # Teams ActiveCard try: https://adaptivecards.io/designer
 
-if [ "x${PLUGIN_URL}" == "x" ]; then
+if [ -z "${PLUGIN_URL}" ]; then
     echo "Need to set MS Teams Webhook URL"
     exit 1
 fi
 
-if [ "x${CI_COMMIT_TAG}" == "x" ]; then
+if [ -z "${CI_COMMIT_TAG}" ]; then
     PROJECT_VERSION="${CI_COMMIT_SHA:0:10}"
 else
     PROJECT_VERSION="${CI_COMMIT_TAG}"
@@ -38,7 +38,7 @@ sed -i "s;TEMPLATE_DATE;${DATESTR};g" /data/card.json
 if [ "x${CI_COMMIT_AUTHOR_AVATAR}" != "x" ]; then
 	if ${PLUGIN_PRIVATE_FORGE:-false}; then
 		echo "Transform Avatar Image to Base64 URI..."
-		curl -fSsL -o /avatar.img ${CI_COMMIT_AUTHOR_AVATAR} || { echo "Download avatar image failed!"; exit 1; }
+		curl -fSsL -o /avatar.img "${CI_COMMIT_AUTHOR_AVATAR}" || { echo "Download avatar image failed!"; exit 1; }
 		imgtype="$(file --mime-type /avatar.img | awk '{print $NF}')"
 		magick /avatar.img -resize 50x50\> /avatar.img2
 		TEMPLATE_IMAGE_AUTHOR="data:${imgtype};base64,$(base64 -w 0 /avatar.img2)"

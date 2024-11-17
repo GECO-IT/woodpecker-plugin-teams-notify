@@ -9,8 +9,8 @@ RUN apk add --no-cache bash curl file imagemagick
 
 WORKDIR /data
 
-COPY teams-notify.sh /usr/local/bin
-COPY card.json .
+COPY teams-notify.sh /usr/local/bin/
+COPY card.json /data/
 RUN chmod +x /usr/local/bin/teams-notify.sh
 
 ENTRYPOINT ["teams-notify.sh"]

@@ -1,8 +1,8 @@
 # syntax = docker/dockerfile:1
 # escape=`
 
-ARG DOCKER_REGISTRY
-FROM ${DOCKER_REGISTRY}/woodpecker-windows-base:latest
+ARG DOCKER_REGISTRY=gecoit84
+FROM ${DOCKER_REGISTRY}/woodpecker-windows-base-chocolatey:latest
 
 LABEL maintainer="Geco-iT Team <contact@geco-it.fr>" `
       name="geco-it/woodpecker-teams-notify-plugin" `
@@ -12,15 +12,20 @@ SHELL ["cmd", "/S", "/C"]
 
 WORKDIR C:\data
 
-# Install GnuWin file and imagemagick for convert Avatar Image URI 
+# Install GnuWin file and imagemagick for convert Avatar Image URI
 # to base64 (use if your forge are private)
-COPY teams-notify-windows.sh file-5.03-setup.exe C:\bin\
-COPY card.json .
+COPY teams-notify.sh file-5.03-setup.exe /bin/
+COPY card.json /data/
 RUN C:\bin\file-5.03-setup.exe /VERYSILENT /NORESTART /DIR="C:\GnuWin" && `
     choco install -y imagemagick && `
-    rmdir /S /Q C:\tmp\cache
+    rmdir /S /Q C:\tmp\cache && `
+    `
+    # Add C:\GnuWin\bin to System Path
+    && setx /m PATH "C:\\GnuWin\\bin;%path%"
+
+USER ContainerUser
 
 SHELL ["bash.exe", "-c"]
 
 ENTRYPOINT ["bash.exe"]
-CMD ["C:\\bin\\teams-notify-windows.sh"]
+CMD ["C:\\bin\\teams-notify.sh"]
