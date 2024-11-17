@@ -1,11 +1,20 @@
-# Woodpecker CI - Teams Notify plugin [![status-badge](https://ci.geco-it.net/api/badges/5/status.svg)](https://ci.geco-it.net/repos/5)
+# Woodpecker CI - Teams Notify plugin
 
-Woodpecker Windows plugin to send teams notifications for build status
+> **Note**
+> Read-only source code mirror of Geco-iT Open Source projects.
+
+[![pipeline-status](https://ci.geco-it.net/api/badges/woodpecker/plugin-teams-notify/status.svg)](https://ci.geco-it.net/repos/woodpecker/plugin-teams-notify)
+[![issues](https://git.geco-it.net/woodpecker/plugin-teams-notify.git/badges/issues/open.svg?logo=forgejo&label=Issues&color=red)](https://git.geco-it.net/woodpecker/plugin-teams-notify.git/issues?state=open)
+[![pulls](https://git.geco-it.net/woodpecker/plugin-teams-notify.git/badges/pulls/open.svg?logo=forgejo&label=Pulls&color=orange)](https://git.geco-it.net/woodpecker/plugin-teams-notify.git/pulls?state=open)
+[![release](https://git.geco-it.net/woodpecker/plugin-teams-notify.git/badges/release.svg?logo=forgejo&label=Release)](https://git.geco-it.net/woodpecker/plugin-teams-notify.git/releases)
+[![license](https://img.shields.io/badge/License-GPLv3-brightgreen)](./LICENSE)
+
+Woodpecker plugin to send teams notifications for build status
 
 For create an Teams Webhook follow [this](https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook)
 
-> **Warning**
-> On Windows, we use __file.exe__ tool for detect type mime from <https://gnuwin32.sourceforge.net/packages/file.htm>
+> **Note**
+> On Windows, we use _file.exe_ tool for detect type mime from <https://gnuwin32.sourceforge.net/packages/file.htm>
 
 For plugin usage please take a look at [docs.md](./docs.md)
 
@@ -23,21 +32,18 @@ C:\> docker build -f Dockerfile.Windows -t gecoit84/woodpecker-teams-notify-plug
 
 ## Result
 
-- Success Build Notifcation
+- Success Build Notification
 
 ![sucess](./assets/success.png)
 
-- Failed Build Notifcation
+- Failed Build Notification
 
 ![failed](./assets/failed.png)
 
 ## License
 
-GPLv3+
+Released under GPLv3+
 
 ## Author Information
 
-This plugin was created in 2024 by Cyril DUCHENOY, CEO of [Geco-iT SARL](www.geco-it.fr).
-
-> **Note**
-> Read-only source code mirror of Geco-iT Open Source projects.
+This plugin was created by Cyril DUCHENOY, CEO of [Geco-iT SARL](www.geco-it.fr).
