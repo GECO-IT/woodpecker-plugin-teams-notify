@@ -5,7 +5,7 @@ icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Microsoft_Office
 description: Plugin to send pipeline status notify to Microsot Teams
 tags: [notifications, chat]
 containerImage: gecoit84/woodpecker-teams-notify-plugin
-containerImageUrl: https://hub.docker.com/gecoit84/woodpecker-teams-notify-plugin
+containerImageUrl: https://hub.docker.com/r/gecoit84/woodpecker-teams-notify-plugin
 url: https://github.com/GECO-IT/woodpecker-plugin-teams-notify
 ---
 
