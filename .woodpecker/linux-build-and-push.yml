@@ -8,7 +8,7 @@ depends_on:
 
 matrix:
   plugin:
-    - harbor-label
+    - teams-notify
 
 when:
   - event: [pull_request, tag, cron]

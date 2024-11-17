@@ -13,7 +13,7 @@ depends_on:
 
 matrix:
   plugin:
-    - harbor-label
+    - teams-notify
 
 steps:
   - name: add manifest Windows/Linux

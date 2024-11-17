@@ -11,26 +11,34 @@ when:
       - renovate/*
 
 steps:
+  # https://gitlab.com/pipeline-components/hadolint
   - name: lint-dockerfile
-    image: hadolint/hadolint:v2.12.1-beta-alpine
+    image: pipelinecomponents/hadolint:0.26.4
     commands:
-      - hadolint Dockerfile
-      - hadolint Dockerfile.Windows
+      - find . -name .git -type d -prune -o -type f -iname dockerfile* -print0 | xargs -0 -r -n1 hadolint
     when:
-      path: "Dockerfile.*"
+      path: "Dockerfile*"
 
+  # https://gitlab.com/pipeline-components/shellcheck
   - name: lint-shell
-    image: koalaman/shellcheck-alpine:latest # not maintained semver version as of 2023-10
+    image: registry.gitlab.com/pipeline-components/shellcheck:0.12.12
     commands:
-      #- shellcheck *.sh
+      - find . -name .git -type d -prune -o -type f -name \*.sh -print0 | xargs -0 -r -n1 shellcheck
       # remove all info check (quote,...)
-      - shellcheck -S warning *.sh
+      # - shellcheck -S warning *.sh
     when:
       path: "*.sh"
 
+  # https://github.com/DavidAnson/markdownlint
   - name: lint-markdown
     image: davidanson/markdownlint-cli2:v0.14.0
     commands:
       - "markdownlint-cli2 *.{md,markdown}"
     when:
       path: "*.{md,markdown}"
+
+  # https://gitlab.com/pipeline-components/yamllint
+  - name: lint-yaml
+    image: registry.gitlab.com/pipeline-components/yamllint:0.32.1
+    commands:
+      - yamllint --strict -f colored .
