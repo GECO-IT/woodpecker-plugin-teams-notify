@@ -6,7 +6,7 @@ description: Plugin to add/remove a Harbor-Registry label to an oci image artifa
 tags: [notifications, chat]
 containerImage: gecoit84/woodpecker-teams-notify-plugin
 containerImageUrl: https://hub.docker.com/gecoit84/woodpecker-teams-notify-plugin
-url: https://git.geco-it.net/woodpecker/plugin-teams-notify
+url: https://github.com/GECO-IT/woodpecker-plugin-teams-notify
 ---
 
 # Teams Notify
@@ -41,10 +41,10 @@ steps:
 
 ## Result
 
-- Success Build Notifcation
+- Success Build Notification
 
 ![sucess](./assets/success.png)
 
-- Failed Build Notifcation
+- Failed Build Notification
 
 ![failed](./assets/failed.png)
