@@ -68,6 +68,6 @@ echo "- PROJECT STATUS: ${CI_PIPELINE_STATUS}"
 echo "- PROJECT BUILD DATE: ${DATESTR}"
 
 echo -e "\nSend card to Microsoft Teams... "
-curl -fSsL -H "Content-Type: application/json" -X POST -d "@C:\\data\\card.json" "${PLUGIN_URL}" || exit 1
+curl -fSsL -H "Content-Type: application/json" -X POST -d "@/data/card.json" "${PLUGIN_URL}" || exit 1
 
 exit 0
