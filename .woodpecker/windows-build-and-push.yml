@@ -35,8 +35,8 @@ steps:
     commands:
       - echo "$${DOCKER_REGISTRY_PASSWORD}" | docker login $${DOCKER_REGISTRY} --username $${DOCKER_REGISTRY_USERNAME} --password-stdin
       - docker image tag $${DOCKER_REGISTRY}/${CI_REPO_OWNER,,}/woodpecker-${plugin}-plugin:${CI_COMMIT_SHA:0:10}-ltsc2022
-                         $${DOCKER_REGISTRY}/${CI_REPO_OWNER,,}/woodpecker-${plugin}-plugin:${CI_COMMIT_TAG}-ltsc2022
-      - docker push $${DOCKER_REGISTRY}/${CI_REPO_OWNER,,}/woodpecker-${plugin}-plugin:${CI_COMMIT_TAG}-ltsc2022
+                         $${DOCKER_REGISTRY}/${CI_REPO_OWNER,,}/woodpecker-${plugin}-plugin:ltsc2022
+      - docker push $${DOCKER_REGISTRY}/${CI_REPO_OWNER,,}/woodpecker-${plugin}-plugin:ltsc2022
     when:
       event: tag
 

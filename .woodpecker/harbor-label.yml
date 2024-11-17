@@ -18,11 +18,11 @@ matrix:
     - image: woodpecker-teams-notify-plugin
       version: latest
     - image: woodpecker-teams-notify-plugin
-      version: ${CI_COMMIT_TAG}-linux-amd64
+      version: linux-amd64
     - image: woodpecker-teams-notify-plugin
-      version: ${CI_COMMIT_TAG}-linux-arm64
+      version: linux-arm64
     - image: woodpecker-teams-notify-plugin
-      version: ${CI_COMMIT_TAG}-ltsc2022
+      version: ltsc2022
 
 steps:
   - name: Add 'docker-hub' label

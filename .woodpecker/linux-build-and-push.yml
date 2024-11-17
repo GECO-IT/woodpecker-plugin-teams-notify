@@ -62,7 +62,7 @@ steps:
       # remove auto manifest created
       provenance: false
       tags:
-        - ${CI_COMMIT_TAG}-linux-amd64
+        - linux-amd64
     when:
       event: tag
 
@@ -82,6 +82,6 @@ steps:
       # remove auto manifest created
       provenance: false
       tags:
-        - ${CI_COMMIT_TAG}-linux-arm64
+        - linux-arm64
     when:
       event: tag
