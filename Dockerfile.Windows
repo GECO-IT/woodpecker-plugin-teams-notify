@@ -22,9 +22,12 @@ RUN C:\bin\file-5.03-setup.exe /VERYSILENT /NORESTART /DIR="C:\GnuWin" `
     # Add C:\GnuWin\bin to System Path
     && setx /m PATH "C:\\GnuWin\\bin;%path%"
 
-USER ContainerUser
 WORKDIR C:\data
 COPY card.json /data/
+# Set right for user ContainerUser
+RUN icacls "C:\data" /q /c /t /grant Users:F
+
+USER ContainerUser
 
 SHELL ["bash.exe", "-c"]
 
