@@ -19,7 +19,7 @@ steps:
     commands:
       - docker build --file Dockerfile.Windows
                      --build-arg="DOCKER_REGISTRY=$${DOCKER_REGISTRY}/${CI_REPO_OWNER,,}"
-                     --tag $${DOCKER_REGISTRY}/${CI_REPO_OWNER,,}/woodpecker-${plugin}-plugin:${CI_COMMIT_SHA:0:10}-ltsc2022 .
+                     --tag $${DOCKER_REGISTRY}/${CI_REPO_OWNER,,}/woodpecker-${plugin}-plugin:${CI_COMMIT_SHA:0:10}-windows-ltsc2022-amd64 .
     when:
       event: [tag, push]
 
@@ -34,9 +34,9 @@ steps:
         from_secret: DOCKER_REGISTRY_PASSWORD
     commands:
       - echo "$${DOCKER_REGISTRY_PASSWORD}" | docker login $${DOCKER_REGISTRY} --username $${DOCKER_REGISTRY_USERNAME} --password-stdin
-      - docker image tag $${DOCKER_REGISTRY}/${CI_REPO_OWNER,,}/woodpecker-${plugin}-plugin:${CI_COMMIT_SHA:0:10}-ltsc2022
-                         $${DOCKER_REGISTRY}/${CI_REPO_OWNER,,}/woodpecker-${plugin}-plugin:ltsc2022
-      - docker push $${DOCKER_REGISTRY}/${CI_REPO_OWNER,,}/woodpecker-${plugin}-plugin:ltsc2022
+      - docker image tag $${DOCKER_REGISTRY}/${CI_REPO_OWNER,,}/woodpecker-${plugin}-plugin:${CI_COMMIT_SHA:0:10}-windows-ltsc2022-amd64
+                         $${DOCKER_REGISTRY}/${CI_REPO_OWNER,,}/woodpecker-${plugin}-plugin:windows-ltsc2022-amd64
+      - docker push $${DOCKER_REGISTRY}/${CI_REPO_OWNER,,}/woodpecker-${plugin}-plugin:windows-ltsc2022-amd64
     when:
       event: tag
 

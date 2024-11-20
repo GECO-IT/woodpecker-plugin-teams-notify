@@ -22,7 +22,7 @@ matrix:
     - image: woodpecker-teams-notify-plugin
       version: linux-arm64
     - image: woodpecker-teams-notify-plugin
-      version: ltsc2022
+      version: windows-ltsc2022-amd64
 
 steps:
   - name: Add 'docker-hub' label

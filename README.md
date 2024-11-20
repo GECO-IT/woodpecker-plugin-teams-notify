@@ -30,6 +30,14 @@ $ docker buildx build -t gecoit84/woodpecker-teams-notify-plugin .
 C:\> docker build -f Dockerfile.Windows -t gecoit84/woodpecker-teams-notify-plugin .
 ```
 
+## Supported architectures
+
+The following architectures are supported/tested:
+
+- linux/amd64
+- linux/arm64
+- windows/amd64
+
 ## Result
 
 - Success Build Notification
@@ -46,4 +54,4 @@ Released under GPLv3+
 
 ## Author Information
 
-This plugin was created by Cyril DUCHENOY, CEO of [Geco-iT SARL](www.geco-it.fr).
+This plugin was created by Cyril DUCHENOY, CEO of [Geco-iT SARL](http://www.geco-it.fr).
