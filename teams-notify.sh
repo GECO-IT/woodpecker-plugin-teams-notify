@@ -16,7 +16,8 @@ else
 fi
 
 DATE='+%Y-%m-%dT%H:%M:%SZ'
-DATESTR=$(date -u -d "@${CI_PIPELINE_FINISHED}" "${DATE}")
+# Woodpecker v3.0 remove CI_PIPELINE_FINISHED => replace by CI_PREV_PIPELINE_FINISHED
+DATESTR=$(date -u -d "@${CI_PREV_PIPELINE_FINISHED}" "${DATE}")
 
 sed -i "s/TEMPLATE_BUILD_URL/${CI_PIPELINE_URL//\//\\/}/" /data/card.json
 sed -i "s;TEMPLATE_PROJECT_NAME;${CI_REPO};" /data/card.json
