@@ -13,15 +13,13 @@ depends_on:
 skip_clone: true
 
 matrix:
-  include:
-    - image: woodpecker-teams-notify-plugin
-      version: latest
-    - image: woodpecker-teams-notify-plugin
-      version: linux-amd64
-    - image: woodpecker-teams-notify-plugin
-      version: linux-arm64
-    - image: woodpecker-teams-notify-plugin
-      version: windows-ltsc2022-amd64
+  plugin:
+    - teams-notify
+  version:
+    - latest
+    - linux-amd64
+    - linux-arm64
+    - windows-ltsc2022-amd64
 
 steps:
   - name: Add 'docker-hub' label
@@ -37,5 +35,5 @@ steps:
       debug: true
       label: docker-hub
       project: ${CI_REPO_OWNER,,}
-      image: ${image}
+      image: woodpecker-${plugin}-plugin
       tag: ${version}
