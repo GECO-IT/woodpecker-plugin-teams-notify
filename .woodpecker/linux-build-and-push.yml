@@ -34,7 +34,7 @@ steps:
       output: type=oci,dest=oci/${CI_REPO_NAME},tar=false
 
   - name: security-scan
-    image: ${DOCKER_INTERNAL_REGISTRY}/docker-hub/docker.io/aquasec/trivy
+    image: ${DOCKER_INTERNAL_REGISTRY}/docker-hub/aquasec/trivy
     depends_on: security-build
     environment:
       TRIVY_DISABLE_VEX_NOTICE: true
