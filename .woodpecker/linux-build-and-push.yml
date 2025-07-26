@@ -19,7 +19,7 @@ when:
 
 steps:
   - name: security-build
-    image: ${DOCKER_INTERNAL_REGISTRY}/docker-hub/woodpeckerci/plugin-docker-buildx:5
+    image: ${DOCKER_INTERNAL_REGISTRY}/docker-hub/woodpeckerci/plugin-docker-buildx:6
     settings:
       dry-run: true
       repo: ${CI_REPO}
@@ -54,7 +54,7 @@ steps:
 ##
 
   - name: build-and-push (amd64)
-    image: ${DOCKER_INTERNAL_REGISTRY}/docker-hub/woodpeckerci/plugin-docker-buildx:5
+    image: ${DOCKER_INTERNAL_REGISTRY}/docker-hub/woodpeckerci/plugin-docker-buildx:6
     depends_on: [security-build, security-scan]
     settings:
       registry: ${DOCKER_INTERNAL_REGISTRY}
@@ -83,7 +83,7 @@ steps:
       event: tag
 
   - name: build-and-push (arm64)
-    image: ${DOCKER_INTERNAL_REGISTRY}/docker-hub/woodpeckerci/plugin-docker-buildx:5
+    image: ${DOCKER_INTERNAL_REGISTRY}/docker-hub/woodpeckerci/plugin-docker-buildx:6
     depends_on: [security-build, security-scan]
     settings:
       registry: ${DOCKER_INTERNAL_REGISTRY}
