@@ -1,7 +1,7 @@
 ---
 name: Teams Notify
 author: Geco-iT Teams
-icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg/langfr-110px-Microsoft_Office_Teams_%282018%E2%80%93present%29.svg.png
+icon: https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Microsoft_Office_Teams_%282025%E2%80%93present%29.svg/250px-Microsoft_Office_Teams_%282025%E2%80%93present%29.svg.png
 description: Plugin to send pipeline status notify to Microsot Teams
 tags: [notifications, chat]
 containerImage: gecoit84/woodpecker-teams-notify-plugin
