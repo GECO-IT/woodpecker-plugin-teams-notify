@@ -1,5 +1,5 @@
 # syntax = docker/dockerfile:1
-FROM alpine:3.22
+FROM alpine:3.24
 
 LABEL maintainer="Geco-iT Team <contact@geco-it.fr>" \
       name="geco-it/woodpecker-teams-notify-plugin" \
