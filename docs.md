@@ -43,7 +43,7 @@ steps:
 
 - Success Build Notification
 
-![sucess](./assets/success.png)
+![success](./assets/success.png)
 
 - Failed Build Notification
 
